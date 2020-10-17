@@ -33,7 +33,10 @@ void setup(){
 // Instantiate dynamic objects
 void draw(){
   //background(#0E620E);
-  CarAnimation();
+  date.display();
+  date.mouseClicked();
+  CarAnimation1();
+  CarAnimation2();
 
 }
 
@@ -76,15 +79,17 @@ class ParkingLot {
     stroke(255);
     fill (#12B22B);
     // bottom grass
-    rect(0, 235, 225, 35);
-    rect(275, 250, 225, 20);
+    rect(0, 250, 225, 35);
+    rect(275, 250, 225, 35);
     
     // top grass
-    rect(0, 25, 225, 45);
-    rect(275, 50, 225, 20);
+    rect(0, 35, 225, 35);
+    rect(275, 35, 225, 35);
     
     // side grass
     rect(0, 70, 50, 200);
+    //Right Side Grass
+    rect(450, 70, 50, 200);
     
   }
 }
@@ -202,11 +207,11 @@ int startTime = 0, stopTime = 0;
     running = true;
   }
   
-  void mousePressed() {
-    if (running) {
+  void mouseClicked() {
+    if (mouseButton == LEFT && running) {
       stop();
     }
-    else {
+    if (mouseButton == RIGHT && !running) {
       start();
     }
   }
@@ -238,13 +243,14 @@ int startTime = 0, stopTime = 0;
   }
   
   void display() {
-    fill(0,0,0);
-  //  rect(
-    textAlign(CENTER);
+    fill(0);
+    rect(340,5,150,20,7);
+    fill(255,255,255);
+    textAlign(LEFT);
     text("Day: "+nf(day())+"  Time: "
     +nf(hour(), 2)+":"
     +nf(minute(), 2)+":"
-    +nf(second(), 2), 150, 175);
+    +nf(second(), 2), 350, 20);
   }
 }
 
@@ -282,7 +288,7 @@ void populateCar(){
   frameRate(30);
 }
 
-void CarAnimation(){
+void CarAnimation1(){
   northstr = new Street(30, "North City Street");
   northstr.drawStreet();
   for(int i=0; i<10; i++){
@@ -293,5 +299,14 @@ void CarAnimation(){
     x[i]=-20;
   }
 }
-    
-    
+void CarAnimation2(){
+  southstr = new Street(height - 30, "South City Street");
+  southstr.drawStreet();
+  for(int i=0; i<10; i++){
+    car[i].drawCar(x[i]);
+    x[i]++;
+  
+  if(x[i] > width+20)
+    x[i]=-20;
+  }
+}
