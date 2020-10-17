@@ -17,8 +17,7 @@ void setup(){
   size(500, 300);
   mainLot = new ParkingLot(100, 200, SECTION_ROWS, SECTION_COLUMNS);
   mainLot.drawParkingLot();
-  northstr = new Street(30, "North City Street");
-  northstr.drawStreet();
+  
   southstr = new Street(height - 30, "South City Street");
   southstr.drawStreet();
   Gate entrance, exit;
@@ -28,12 +27,13 @@ void setup(){
   exit.drawGate();
   date = new Date();
   date.start();
+  populateCar();
 }
 
 // Instantiate dynamic objects
 void draw(){
   //background(#0E620E);
-
+  CarAnimation();
 
 }
 
@@ -247,3 +247,51 @@ int startTime = 0, stopTime = 0;
     +nf(second(), 2), 150, 175);
   }
 }
+
+class Car{
+  int x, y, c1, c2;
+  boolean k;
+  
+  Car(int b, boolean w, int l, int m){
+    y=b;
+    k=w;
+    c1=l;
+    c2=m;
+  }
+  
+  void drawCar(int a){
+    x=a;
+    stroke(0);
+    strokeWeight(1);
+    fill(c1, c2, c2);
+    rect(x, y, 20, 15);
+    fill(c1, c1, c2);
+    rect(x+2, y+2, 5, 11);
+    rect(x+11, y+2, 5, 11);
+  }
+}
+
+Car [] car=new Car[10];
+int [] x=new int[10];
+
+void populateCar(){
+  for (int i=0; i<10; i++){
+    x[i]=round(random(0, width));
+    car[i]= new Car(37, true, round(random(255)), round(random(255)));
+  }
+  frameRate(30);
+}
+
+void CarAnimation(){
+  northstr = new Street(30, "North City Street");
+  northstr.drawStreet();
+  for(int i=0; i<10; i++){
+    car[i].drawCar(x[i]);
+    x[i]++;
+  
+  if(x[i] > width+20)
+    x[i]=-20;
+  }
+}
+    
+    
