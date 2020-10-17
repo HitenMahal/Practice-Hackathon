@@ -2,6 +2,10 @@
 Programmers:
 Niyousha Raeesinejad, Mahira Mirza, Qinglan Lin, Hiten Mahalwar
 
+**Instructions**
+Left Click mouse to Pause Simulation
+Right Click mouse to Reset Simulation
+
 The program created is a Parking Lot Simulator:
 "The target simulator is supposed to demonstrate cars randomly entering the
 parking lot and staying there for a period, and then leaving the lot randomly. The exact time that a car
