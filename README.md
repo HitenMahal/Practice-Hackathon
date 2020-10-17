@@ -9,3 +9,6 @@ enters the lot, and the time that it leaves the lot are recorded. Based on these
 should display the duration of stay for each car at the exit gate"
 
 Sample Picture:
+
+
+![Timer](https://user-images.githubusercontent.com/72403820/96355609-b0165f00-10a0-11eb-9c1b-eaea3cc3dfc2.PNG)
