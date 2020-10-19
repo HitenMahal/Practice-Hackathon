@@ -2,9 +2,12 @@
 Programmers:
 Niyousha Raeesinejad, Mahira Mirza, Qinglan Lin, Hiten Mahalwar
 
-**Instructions**
-Left Click mouse to Pause Simulation
-Right Click mouse to Reset Simulation
+**Language:**
+Processing
+
+**Instructions:**
+Left click mouse to pause simulation. Right click mouse to reset simulation.
+
 
 The program created is a Parking Lot Simulator:
 "The target simulator is supposed to demonstrate cars randomly entering the
